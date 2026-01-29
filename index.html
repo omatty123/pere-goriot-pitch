@@ -171,100 +171,87 @@
             color: var(--accent-gold);
         }
 
-        /* Cast Table */
-        .cast-table-container {
-            overflow-x: auto;
+        /* Cast Grid */
+        .cast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
             margin-top: 2rem;
         }
 
-        .cast-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.95rem;
+        .cast-card {
+            display: flex;
+            gap: 1rem;
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 1.25rem;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #222;
         }
 
-        .cast-table th {
-            text-align: left;
-            padding: 1rem;
-            border-bottom: 2px solid var(--accent-gold);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent-gold);
+        .cast-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            border-color: var(--accent-gold);
+            text-decoration: none;
         }
 
-        .cast-table td {
-            padding: 1.25rem 1rem;
-            border-bottom: 1px solid #333;
-            vertical-align: top;
+        .cast-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            object-fit: cover;
         }
 
-        .cast-table tr:hover {
-            background: rgba(201, 169, 98, 0.05);
+        .cast-info {
+            flex: 1;
+            min-width: 0;
         }
 
-        .cast-table .char-name {
+        .cast-character {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 0.1rem;
+        }
+
+        .cast-original {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .cast-actor {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
             margin-bottom: 0.25rem;
         }
 
-        .cast-table .char-desc {
+        .cast-credits {
+            font-size: 0.75rem;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .cast-desc {
             font-size: 0.8rem;
             color: var(--text-secondary);
             line-height: 1.4;
         }
 
-        .cast-table .original {
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            color: var(--accent-gold);
-            font-size: 1rem;
-        }
-
-        .cast-table .actor-name {
-            white-space: nowrap;
-        }
-
-        .cast-table .actor-name strong {
-            color: var(--text-primary);
-            font-size: 1rem;
-        }
-
-        .cast-table .known-for {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .cast-table .links {
-            white-space: nowrap;
-        }
-
-        .cast-table .links a {
-            display: inline-block;
-            font-size: 0.7rem;
-            padding: 0.25rem 0.5rem;
-            border: 1px solid #444;
-            border-radius: 3px;
-            color: var(--text-secondary);
-            margin-right: 0.5rem;
-            text-decoration: none;
-        }
-
-        .cast-table .links a:hover {
-            border-color: var(--accent-gold);
-            color: var(--accent-gold);
-        }
-
         @media (max-width: 768px) {
-            .cast-table {
-                font-size: 0.85rem;
+            .cast-grid {
+                grid-template-columns: 1fr;
             }
-            .cast-table th, .cast-table td {
-                padding: 0.75rem 0.5rem;
-            }
-            .cast-table .links {
-                display: none;
+            .cast-photo {
+                width: 60px;
+                height: 60px;
             }
         }
 
@@ -428,99 +415,77 @@
         <h2 class="section-title">Characters & Cast</h2>
         <p class="section-subtitle">The Players</p>
 
-        <div class="cast-table-container">
-            <table class="cast-table">
-                <thead>
-                    <tr>
-                        <th>Character</th>
-                        <th>Balzac</th>
-                        <th>Actor</th>
-                        <th>Known For</th>
-                        <th>Links</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <div class="char-name">Go Yeong-sik</div>
-                            <div class="char-desc">Ruined father, 68. Once a ramyeon factory founder, now a gosiwon ghost.</div>
-                        </td>
-                        <td class="original">Goriot</td>
-                        <td class="actor-name"><strong>Lee Sung-min</strong></td>
-                        <td class="known-for">Reborn Rich, Misaeng</td>
-                        <td class="links">
-                            <a href="https://en.wikipedia.org/wiki/Lee_Sung-min_(actor)" target="_blank">Wiki</a>
-                            <a href="https://www.imdb.com/name/nm1520129/" target="_blank">IMDb</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="char-name">Jung Siwoo</div>
-                            <div class="char-desc">Law student, 24. Provincial innocence corrupted by ambition.</div>
-                        </td>
-                        <td class="original">Rastignac</td>
-                        <td class="actor-name"><strong>Byeon Woo-seok</strong></td>
-                        <td class="known-for">Lovely Runner, Record of Youth</td>
-                        <td class="links">
-                            <a href="https://en.wikipedia.org/wiki/Byeon_Woo-seok" target="_blank">Wiki</a>
-                            <a href="https://www.imdb.com/name/nm9530605/" target="_blank">IMDb</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="char-name">Baek Cheol-min</div>
-                            <div class="char-desc">Fixer, 45. Disbarred prosecutor. The devil with a smile.</div>
-                        </td>
-                        <td class="original">Vautrin</td>
-                        <td class="actor-name"><strong>Lee Je-hoon</strong></td>
-                        <td class="known-for">Taxi Driver, Signal, Move to Heaven</td>
-                        <td class="links">
-                            <a href="https://en.wikipedia.org/wiki/Lee_Je-hoon" target="_blank">Wiki</a>
-                            <a href="https://www.imdb.com/name/nm2043703/" target="_blank">IMDb</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="char-name">Go Delphin</div>
-                            <div class="char-desc">Younger daughter, 32. Trapped in chaebol marriage. Siwoo's affair.</div>
-                        </td>
-                        <td class="original">Delphine</td>
-                        <td class="actor-name"><strong>Kim Ji-won</strong></td>
-                        <td class="known-for">Queen of Tears, My Liberation Notes</td>
-                        <td class="links">
-                            <a href="https://en.wikipedia.org/wiki/Kim_Ji-won" target="_blank">Wiki</a>
-                            <a href="https://www.imdb.com/name/nm4548586/" target="_blank">IMDb</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="char-name">Go Anna</div>
-                            <div class="char-desc">Older daughter, 38. Married to Assemblyman. Ice cold.</div>
-                        </td>
-                        <td class="original">Anastasie</td>
-                        <td class="actor-name"><strong>Han Ji-min</strong></td>
-                        <td class="known-for">Miss Baek, Our Blues, Love Scout</td>
-                        <td class="links">
-                            <a href="https://en.wikipedia.org/wiki/Han_Ji-min" target="_blank">Wiki</a>
-                            <a href="https://www.imdb.com/name/nm1617711/" target="_blank">IMDb</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="char-name">Madam Bo</div>
-                            <div class="char-desc">Gosiwon owner, 55. Sharp-tongued moral compass.</div>
-                        </td>
-                        <td class="original">Mme Vauquer</td>
-                        <td class="actor-name"><strong>Yum Hye-ran</strong></td>
-                        <td class="known-for">The Glory, Mask Girl</td>
-                        <td class="links">
-                            <a href="https://en.wikipedia.org/wiki/Yeom_Hye-ran" target="_blank">Wiki</a>
-                            <a href="https://www.imdb.com/name/nm2684395/" target="_blank">IMDb</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="cast-grid">
+            <a href="https://en.wikipedia.org/wiki/Lee_Sung-min_(actor)" target="_blank" class="cast-card">
+                <img src="https://image.tmdb.org/t/p/w185/vHIuGPJKHWkPbCYCjKZoLyTJzI0.jpg" alt="Lee Sung-min" class="cast-photo">
+                <div class="cast-info">
+                    <div class="cast-character">Go Yeong-sik</div>
+                    <div class="cast-original">Goriot</div>
+                    <div class="cast-actor">Lee Sung-min 이성민</div>
+                    <div class="cast-credits">Reborn Rich, Misaeng</div>
+                    <div class="cast-desc">Ruined ramyeon magnate, 68. Gave everything to daughters who now pretend they don't know him.</div>
+                </div>
+            </a>
+
+            <a href="https://en.wikipedia.org/wiki/Byeon_Woo-seok" target="_blank" class="cast-card">
+                <img src="https://image.tmdb.org/t/p/w185/sHIicpNbONRksAkAHLkeL2Kqlb2.jpg" alt="Byeon Woo-seok" class="cast-photo">
+                <div class="cast-info">
+                    <div class="cast-character">Jung Siwoo</div>
+                    <div class="cast-original">Rastignac</div>
+                    <div class="cast-actor">Byeon Woo-seok 변우석</div>
+                    <div class="cast-credits">Lovely Runner, Record of Youth</div>
+                    <div class="cast-desc">Law student, 24. Provincial innocence corrupted by Seoul's seductive cruelty.</div>
+                </div>
+            </a>
+
+            <a href="https://en.wikipedia.org/wiki/Lee_Je-hoon" target="_blank" class="cast-card">
+                <img src="https://image.tmdb.org/t/p/w185/dA3woNYlvfTxRRPRwmxD8apyLcf.jpg" alt="Lee Je-hoon" class="cast-photo">
+                <div class="cast-info">
+                    <div class="cast-character">Baek Cheol-min</div>
+                    <div class="cast-original">Vautrin</div>
+                    <div class="cast-actor">Lee Je-hoon 이제훈</div>
+                    <div class="cast-credits">Taxi Driver, Signal, Move to Heaven</div>
+                    <div class="cast-desc">Fixer, 45. Disbarred prosecutor. The devil with a charming smile.</div>
+                </div>
+            </a>
+
+            <a href="https://en.wikipedia.org/wiki/Kim_Ji-won" target="_blank" class="cast-card">
+                <img src="https://image.tmdb.org/t/p/w185/lGoaU6i2MK5RVBudKps3BdnEMek.jpg" alt="Kim Ji-won" class="cast-photo">
+                <div class="cast-info">
+                    <div class="cast-character">Go Delphin</div>
+                    <div class="cast-original">Delphine</div>
+                    <div class="cast-actor">Kim Ji-won 김지원</div>
+                    <div class="cast-credits">Queen of Tears, My Liberation Notes</div>
+                    <div class="cast-desc">Younger daughter, 32. Trapped in chaebol marriage. Siwoo's dangerous affair.</div>
+                </div>
+            </a>
+
+            <a href="https://en.wikipedia.org/wiki/Han_Ji-min" target="_blank" class="cast-card">
+                <img src="https://image.tmdb.org/t/p/w185/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg" alt="Han Ji-min" class="cast-photo">
+                <div class="cast-info">
+                    <div class="cast-character">Go Anna</div>
+                    <div class="cast-original">Anastasie</div>
+                    <div class="cast-actor">Han Ji-min 한지민</div>
+                    <div class="cast-credits">Miss Baek, Our Blues, Love Scout</div>
+                    <div class="cast-desc">Older daughter, 38. Married to Assemblyman. Ice cold. Delivers the final cruelty.</div>
+                </div>
+            </a>
+
+            <a href="https://en.wikipedia.org/wiki/Yeom_Hye-ran" target="_blank" class="cast-card">
+                <img src="https://image.tmdb.org/t/p/w185/30U1CK8gVPijV6N0N2F2iiY9pPH.jpg" alt="Yum Hye-ran" class="cast-photo">
+                <div class="cast-info">
+                    <div class="cast-character">Madam Bo</div>
+                    <div class="cast-original">Mme Vauquer</div>
+                    <div class="cast-actor">Yum Hye-ran 염혜란</div>
+                    <div class="cast-credits">The Glory, Mask Girl</div>
+                    <div class="cast-desc">Gosiwon owner, 55. Sharp-tongued survivor. The story's hidden conscience.</div>
+                </div>
+            </a>
         </div>
+
+        <p style="text-align: center; margin-top: 2rem; color: var(--text-secondary); font-size: 0.85rem;">
+            Click any card to view actor profile and photos →
+        </p>
     </section>
 
     <section>
