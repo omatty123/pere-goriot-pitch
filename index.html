@@ -376,6 +376,63 @@
             color: var(--accent-gold);
         }
 
+        /* Concept Stills Gallery */
+        .stills {
+            background: var(--bg-card);
+            padding: 1.5rem 2rem 2rem;
+        }
+
+        .stills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .still-item {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .still-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .still-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .still-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 1.5rem 0.5rem 0.35rem;
+            color: white;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        @media (max-width: 768px) {
+            .stills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* Why Now - Editorial Two-Column */
         .why-now {
             background: var(--bg-section);
@@ -623,6 +680,49 @@
         </div>
     </section>
 
+    <section class="stills">
+        <h2 class="section-title">Concept Stills</h2>
+        <p class="section-subtitle">Visual Storytelling</p>
+
+        <div class="stills-grid">
+            <div class="still-item">
+                <img src="images/still-01-gosiwon-corridor.jpg" alt="Gosiwon Corridor">
+                <div class="still-caption">Gosiwon Corridor</div>
+            </div>
+            <div class="still-item">
+                <img src="images/still-02-goriot-alone.jpg" alt="Goriot Eating Alone">
+                <div class="still-caption">Goriot Eating Alone</div>
+            </div>
+            <div class="still-item">
+                <img src="images/still-03-gangnam-party.jpg" alt="Gangnam Party">
+                <div class="still-caption">Gangnam Party</div>
+            </div>
+            <div class="still-item">
+                <img src="images/still-04-the-affair.jpg" alt="The Affair">
+                <div class="still-caption">The Affair</div>
+            </div>
+            <div class="still-item">
+                <img src="images/still-05-vautrin-offer.jpg" alt="Vautrin's Offer">
+                <div class="still-caption">Vautrin's Offer</div>
+            </div>
+            <div class="still-item">
+                <img src="images/still-06-daughters.jpg" alt="The Daughters">
+                <div class="still-caption">The Daughters</div>
+            </div>
+            <div class="still-item">
+                <img src="images/still-07-death.jpg" alt="Goriot's Death">
+                <div class="still-caption">Goriot's Death</div>
+            </div>
+            <div class="still-item">
+                <img src="images/still-08-funeral.jpg" alt="The Funeral">
+                <div class="still-caption">The Funeral</div>
+            </div>
+            <div class="still-item">
+                <img src="images/still-09-namsan.jpg" alt="Final Shot - Namsan">
+                <div class="still-caption">Final Shot — Namsan</div>
+            </div>
+        </div>
+    </section>
 
     <section class="why-now">
         <h2 class="section-title">Why Balzac, Why Korea</h2>
