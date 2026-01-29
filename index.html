@@ -392,28 +392,65 @@
             color: var(--accent-gold);
         }
 
-        /* Why Now */
+        /* Why Now - Editorial Two-Column */
         .why-now {
-            background: linear-gradient(135deg, var(--accent-red) 0%, #5a1a23 100%);
+            background: #ffffff;
             padding: 6rem 2rem;
-            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .why-now .section-title {
-            color: var(--text-primary);
-        }
-
-        .why-now-content {
-            max-width: 700px;
-            margin: 0 auto;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
-            line-height: 1.9;
-        }
-
-        .why-now-content em {
             color: var(--accent-gold);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .why-now-columns {
+            display: grid;
+            grid-template-columns: 1fr 1px 1fr;
+            gap: 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .why-now-divider {
+            background: var(--accent-gold);
+        }
+
+        .why-now-col h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .why-now-col p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .why-now-col p + p {
+            margin-top: 1rem;
+        }
+
+        .why-now-col em {
+            color: var(--text-primary);
             font-style: normal;
+        }
+
+        @media (max-width: 768px) {
+            .why-now-columns {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .why-now-divider {
+                display: none;
+            }
         }
 
         /* Footer */
@@ -608,12 +645,17 @@
 
     <section class="why-now">
         <h2 class="section-title">Why Balzac, Why Korea</h2>
-        <div class="why-now-content">
-            <p>Balzac wrote <em>Père Goriot</em> in 1835 about a specific problem: what happens when money replaces birth as the measure of status, and parents bankrupt themselves to push their children into a class that will never fully accept them.</p>
-            <br>
-            <p>Korea has a word for this: <em>금수저/흙수저</em> (gold spoon/dirt spoon). The postwar generation built businesses, saved obsessively, and spent everything on education and wedding dowries. Their children married into higher circles—and learned to be embarrassed by where they came from.</p>
-            <br>
-            <p>The boarding house where Goriot dies among strangers is the gosiwon. The daughters who won't return his calls are in Cheongdam-dong. The young man choosing between conscience and ambition is in every law school in Seoul.</p>
+        <div class="why-now-columns">
+            <div class="why-now-col">
+                <h3>Why Balzac</h3>
+                <p>Balzac wrote <em>Père Goriot</em> in 1835 about a specific problem: what happens when money replaces birth as the measure of status, and parents bankrupt themselves to push their children into a class that will never fully accept them.</p>
+            </div>
+            <div class="why-now-divider"></div>
+            <div class="why-now-col">
+                <h3>Why Korea</h3>
+                <p>Korea has a word for this: <em>금수저/흙수저</em> (gold spoon/dirt spoon). The postwar generation built businesses, saved obsessively, and spent everything on education and wedding dowries. Their children married into higher circles—and learned to be embarrassed by where they came from.</p>
+                <p>The boarding house where Goriot dies among strangers is the gosiwon. The daughters who won't return his calls are in Cheongdam-dong. The young man choosing between conscience and ambition is in every law school in Seoul.</p>
+            </div>
         </div>
     </section>
 
