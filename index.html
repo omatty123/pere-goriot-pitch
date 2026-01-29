@@ -73,20 +73,21 @@
         }
 
         .hero-korean {
-            font-size: clamp(1rem, 3vw, 1.5rem);
-            letter-spacing: 0.5em;
-            color: var(--accent-gold);
-            margin-bottom: 1rem;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            letter-spacing: 0.3em;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
             font-weight: 300;
         }
 
         .hero-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(3rem, 10vw, 8rem);
+            font-size: clamp(5rem, 18vw, 14rem);
             font-weight: 400;
-            letter-spacing: 0.1em;
-            margin-bottom: 2rem;
+            letter-spacing: 0.15em;
+            margin-bottom: 1.5rem;
             text-transform: uppercase;
+            line-height: 0.9;
         }
 
         .hero-subtitle {
@@ -206,6 +207,22 @@
             object-fit: cover;
         }
 
+        .cast-photo-placeholder {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            border: 2px solid var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            font-weight: 400;
+            letter-spacing: 0.05em;
+        }
+
         .cast-info {
             flex: 1;
             min-width: 0;
@@ -249,9 +266,11 @@
             .cast-grid {
                 grid-template-columns: 1fr;
             }
-            .cast-photo {
+            .cast-photo,
+            .cast-photo-placeholder {
                 width: 60px;
                 height: 60px;
+                font-size: 0.75rem;
             }
         }
 
@@ -377,8 +396,8 @@
 </head>
 <body>
     <section class="hero">
-        <p class="hero-korean">아버지 고리오</p>
-        <h1 class="hero-title">Father Goriot</h1>
+        <h1 class="hero-title">GORIOT</h1>
+        <p class="hero-korean">고리오 아버지</p>
         <p class="hero-subtitle">A Korean Adaptation of Balzac's Masterpiece</p>
         <blockquote class="hero-logline">
             A young law student from the provinces discovers that Seoul's elite run on betrayal when he befriends a ruined father whose chaebol daughters have bled him dry—and a charismatic fixer who offers him a darker path to the top.
@@ -417,7 +436,7 @@
 
         <div class="cast-grid">
             <a href="https://en.wikipedia.org/wiki/Lee_Sung-min_(actor)" target="_blank" class="cast-card">
-                <img src="https://image.tmdb.org/t/p/w185/vHIuGPJKHWkPbCYCjKZoLyTJzI0.jpg" alt="Lee Sung-min" class="cast-photo">
+                <div class="cast-photo-placeholder">이성민</div>
                 <div class="cast-info">
                     <div class="cast-character">Go Yeong-sik</div>
                     <div class="cast-original">Goriot</div>
@@ -428,7 +447,7 @@
             </a>
 
             <a href="https://en.wikipedia.org/wiki/Byeon_Woo-seok" target="_blank" class="cast-card">
-                <img src="https://image.tmdb.org/t/p/w185/sHIicpNbONRksAkAHLkeL2Kqlb2.jpg" alt="Byeon Woo-seok" class="cast-photo">
+                <div class="cast-photo-placeholder">변우석</div>
                 <div class="cast-info">
                     <div class="cast-character">Jung Siwoo</div>
                     <div class="cast-original">Rastignac</div>
@@ -439,7 +458,7 @@
             </a>
 
             <a href="https://en.wikipedia.org/wiki/Lee_Je-hoon" target="_blank" class="cast-card">
-                <img src="https://image.tmdb.org/t/p/w185/dA3woNYlvfTxRRPRwmxD8apyLcf.jpg" alt="Lee Je-hoon" class="cast-photo">
+                <div class="cast-photo-placeholder">이제훈</div>
                 <div class="cast-info">
                     <div class="cast-character">Baek Cheol-min</div>
                     <div class="cast-original">Vautrin</div>
@@ -450,7 +469,7 @@
             </a>
 
             <a href="https://en.wikipedia.org/wiki/Kim_Ji-won" target="_blank" class="cast-card">
-                <img src="https://image.tmdb.org/t/p/w185/lGoaU6i2MK5RVBudKps3BdnEMek.jpg" alt="Kim Ji-won" class="cast-photo">
+                <div class="cast-photo-placeholder">김지원</div>
                 <div class="cast-info">
                     <div class="cast-character">Go Delphin</div>
                     <div class="cast-original">Delphine</div>
@@ -461,7 +480,7 @@
             </a>
 
             <a href="https://en.wikipedia.org/wiki/Han_Ji-min" target="_blank" class="cast-card">
-                <img src="https://image.tmdb.org/t/p/w185/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg" alt="Han Ji-min" class="cast-photo">
+                <div class="cast-photo-placeholder">한지민</div>
                 <div class="cast-info">
                     <div class="cast-character">Go Anna</div>
                     <div class="cast-original">Anastasie</div>
@@ -472,7 +491,7 @@
             </a>
 
             <a href="https://en.wikipedia.org/wiki/Yeom_Hye-ran" target="_blank" class="cast-card">
-                <img src="https://image.tmdb.org/t/p/w185/30U1CK8gVPijV6N0N2F2iiY9pPH.jpg" alt="Yum Hye-ran" class="cast-photo">
+                <div class="cast-photo-placeholder">염혜란</div>
                 <div class="cast-info">
                     <div class="cast-character">Madam Bo</div>
                     <div class="cast-original">Mme Vauquer</div>
