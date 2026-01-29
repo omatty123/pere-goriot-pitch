@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Father Goriot | 아버지 고리오</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-section: #111111;
+            --bg-card: #1a1a1a;
+            --text-primary: #f5f5f5;
+            --text-secondary: #a0a0a0;
+            --accent-gold: #c9a962;
+            --accent-red: #8b2635;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        .serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        a {
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #1a1a1a 50%, var(--bg-dark) 100%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(201, 169, 98, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-korean {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            letter-spacing: 0.5em;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .hero-subtitle {
+            font-style: italic;
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 3rem;
+        }
+
+        .hero-logline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            max-width: 800px;
+            line-height: 1.8;
+            color: var(--text-primary);
+            padding: 2rem;
+            border-left: 2px solid var(--accent-gold);
+            text-align: left;
+            margin-bottom: 4rem;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            animation: bounce 2s infinite;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+        }
+
+        /* Synopsis */
+        .synopsis {
+            background: var(--bg-section);
+            padding: 4rem 2rem;
+        }
+
+        .synopsis-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .synopsis p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .synopsis p:first-of-type::first-letter {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            float: left;
+            line-height: 0.8;
+            padding-right: 0.5rem;
+            color: var(--accent-gold);
+        }
+
+        /* Cast Table */
+        .cast-table-container {
+            overflow-x: auto;
+            margin-top: 2rem;
+        }
+
+        .cast-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .cast-table th {
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 2px solid var(--accent-gold);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-gold);
+        }
+
+        .cast-table td {
+            padding: 1.25rem 1rem;
+            border-bottom: 1px solid #333;
+            vertical-align: top;
+        }
+
+        .cast-table tr:hover {
+            background: rgba(201, 169, 98, 0.05);
+        }
+
+        .cast-table .char-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .cast-table .char-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .cast-table .original {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            color: var(--accent-gold);
+            font-size: 1rem;
+        }
+
+        .cast-table .actor-name {
+            white-space: nowrap;
+        }
+
+        .cast-table .actor-name strong {
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        .cast-table .known-for {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .cast-table .links {
+            white-space: nowrap;
+        }
+
+        .cast-table .links a {
+            display: inline-block;
+            font-size: 0.7rem;
+            padding: 0.25rem 0.5rem;
+            border: 1px solid #444;
+            border-radius: 3px;
+            color: var(--text-secondary);
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+
+        .cast-table .links a:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        @media (max-width: 768px) {
+            .cast-table {
+                font-size: 0.85rem;
+            }
+            .cast-table th, .cast-table td {
+                padding: 0.75rem 0.5rem;
+            }
+            .cast-table .links {
+                display: none;
+            }
+        }
+
+        /* Comps */
+        .comps {
+            background: var(--bg-section);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .comp-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-style: italic;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+        }
+
+        .comp-films {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .comp-film {
+            padding: 1rem 2rem;
+            border: 1px solid #333;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Themes */
+        .themes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .theme-item {
+            padding: 1.5rem;
+        }
+
+        .theme-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .theme-korean {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .theme-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Why Now */
+        .why-now {
+            background: linear-gradient(135deg, var(--accent-red) 0%, #5a1a23 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .why-now .section-title {
+            color: var(--text-primary);
+        }
+
+        .why-now-content {
+            max-width: 700px;
+            margin: 0 auto;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            line-height: 1.9;
+        }
+
+        .why-now-content em {
+            color: var(--accent-gold);
+            font-style: normal;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            border-top: 1px solid #222;
+        }
+
+        .footer-contact {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-note {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-logline {
+                padding: 1.5rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .characters-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .actor-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <p class="hero-korean">아버지 고리오</p>
+        <h1 class="hero-title">Father Goriot</h1>
+        <p class="hero-subtitle">A Korean Adaptation of Balzac's Masterpiece</p>
+        <blockquote class="hero-logline">
+            A young law student from the provinces discovers that Seoul's elite run on betrayal when he befriends a ruined father whose chaebol daughters have bled him dry—and a charismatic fixer who offers him a darker path to the top.
+        </blockquote>
+        <span class="scroll-indicator">SCROLL</span>
+    </section>
+
+    <section class="comps">
+        <p class="comp-quote">"Parasite meets King Lear in the glass towers of Gangnam."</p>
+        <div class="comp-films">
+            <div class="comp-film">Parasite (2019)</div>
+            <div class="comp-film">Burning (2018)</div>
+            <div class="comp-film">The Handmaiden (2016)</div>
+            <div class="comp-film">Decision to Leave (2022)</div>
+        </div>
+    </section>
+
+    <section class="synopsis">
+        <div class="synopsis-content">
+            <h2 class="section-title">The Story</h2>
+            <p class="section-subtitle">Synopsis</p>
+
+            <p>Jung Siwoo, a scholarship student from Busan, arrives in Seoul to study law at Korea University. Unable to afford the dormitory, he rents a room in a crumbling gosiwon—a cramped exam-prep dormitory in a forgotten corner of Mapo-gu. Among the residents is Go Yeong-sik, who built a ramyeon empire during Korea's industrialization—the instant noodles that fed a hungry nation. He liquidated everything to fund dowries that bought his daughters entry into Seoul's true elite. Now he lives in a room barely larger than a coffin, surviving on the very ramyeon that made his fortune, while his daughters—ashamed of their "noodle money" origins—dine on Hanwoo beef in Cheongdam-dong and pretend they don't know him.</p>
+
+            <p>Through a distant cousin, Siwoo enters high society and begins an affair with Go's younger daughter Delphine, now married to a Hanwha Group executive. Back at the gosiwon, a charismatic former prosecutor named Baek Cheol-min sees Siwoo's hunger and offers him a devil's bargain: help destroy a rival, and Cheol-min will make him rich.</p>
+
+            <p>As Siwoo is pulled between desire and ambition, he watches Old Man Go sell his last asset to save his older daughter from scandal. She doesn't even call to thank him. When Go dies alone in his gosiwon room, attended only by Siwoo, his daughters perform grief for cameras at a municipal funeral they refused to fund.</p>
+
+            <p>Standing on Namsan Tower, looking down at glittering Seoul, Siwoo makes his choice.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Characters & Cast</h2>
+        <p class="section-subtitle">The Players</p>
+
+        <div class="cast-table-container">
+            <table class="cast-table">
+                <thead>
+                    <tr>
+                        <th>Character</th>
+                        <th>Balzac</th>
+                        <th>Actor</th>
+                        <th>Known For</th>
+                        <th>Links</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="char-name">Go Yeong-sik</div>
+                            <div class="char-desc">Ruined father, 68. Once a ramyeon factory founder, now a gosiwon ghost.</div>
+                        </td>
+                        <td class="original">Goriot</td>
+                        <td class="actor-name"><strong>Lee Sung-min</strong></td>
+                        <td class="known-for">Reborn Rich, Misaeng</td>
+                        <td class="links">
+                            <a href="https://en.wikipedia.org/wiki/Lee_Sung-min_(actor)" target="_blank">Wiki</a>
+                            <a href="https://www.imdb.com/name/nm1520129/" target="_blank">IMDb</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="char-name">Jung Siwoo</div>
+                            <div class="char-desc">Law student, 24. Provincial innocence corrupted by ambition.</div>
+                        </td>
+                        <td class="original">Rastignac</td>
+                        <td class="actor-name"><strong>Byeon Woo-seok</strong></td>
+                        <td class="known-for">Lovely Runner, Record of Youth</td>
+                        <td class="links">
+                            <a href="https://en.wikipedia.org/wiki/Byeon_Woo-seok" target="_blank">Wiki</a>
+                            <a href="https://www.imdb.com/name/nm9530605/" target="_blank">IMDb</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="char-name">Baek Cheol-min</div>
+                            <div class="char-desc">Fixer, 45. Disbarred prosecutor. The devil with a smile.</div>
+                        </td>
+                        <td class="original">Vautrin</td>
+                        <td class="actor-name"><strong>Lee Je-hoon</strong></td>
+                        <td class="known-for">Taxi Driver, Signal, Move to Heaven</td>
+                        <td class="links">
+                            <a href="https://en.wikipedia.org/wiki/Lee_Je-hoon" target="_blank">Wiki</a>
+                            <a href="https://www.imdb.com/name/nm2043703/" target="_blank">IMDb</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="char-name">Go Delphin</div>
+                            <div class="char-desc">Younger daughter, 32. Trapped in chaebol marriage. Siwoo's affair.</div>
+                        </td>
+                        <td class="original">Delphine</td>
+                        <td class="actor-name"><strong>Kim Ji-won</strong></td>
+                        <td class="known-for">Queen of Tears, My Liberation Notes</td>
+                        <td class="links">
+                            <a href="https://en.wikipedia.org/wiki/Kim_Ji-won" target="_blank">Wiki</a>
+                            <a href="https://www.imdb.com/name/nm4548586/" target="_blank">IMDb</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="char-name">Go Anna</div>
+                            <div class="char-desc">Older daughter, 38. Married to Assemblyman. Ice cold.</div>
+                        </td>
+                        <td class="original">Anastasie</td>
+                        <td class="actor-name"><strong>Han Ji-min</strong></td>
+                        <td class="known-for">Miss Baek, Our Blues, Love Scout</td>
+                        <td class="links">
+                            <a href="https://en.wikipedia.org/wiki/Han_Ji-min" target="_blank">Wiki</a>
+                            <a href="https://www.imdb.com/name/nm1617711/" target="_blank">IMDb</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="char-name">Madam Bo</div>
+                            <div class="char-desc">Gosiwon owner, 55. Sharp-tongued moral compass.</div>
+                        </td>
+                        <td class="original">Mme Vauquer</td>
+                        <td class="actor-name"><strong>Yum Hye-ran</strong></td>
+                        <td class="known-for">The Glory, Mask Girl</td>
+                        <td class="links">
+                            <a href="https://en.wikipedia.org/wiki/Yeom_Hye-ran" target="_blank">Wiki</a>
+                            <a href="https://www.imdb.com/name/nm2684395/" target="_blank">IMDb</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Themes</h2>
+        <p class="section-subtitle">What It's Really About</p>
+
+        <div class="themes-grid">
+            <div class="theme-item">
+                <h3 class="theme-title">Class Immobility</h3>
+                <p class="theme-korean">헬조선 · "Hell Joseon"</p>
+                <p class="theme-desc">Korea's "dirt spoon vs. gold spoon" reality. The statistical impossibility of upward mobility through merit alone.</p>
+            </div>
+
+            <div class="theme-item">
+                <h3 class="theme-title">Filial Piety Inverted</h3>
+                <p class="theme-korean">효도의 배반</p>
+                <p class="theme-desc">Confucian values weaponized. The father sacrifices everything; the children consume without gratitude.</p>
+            </div>
+
+            <div class="theme-item">
+                <h3 class="theme-title">The Education Trap</h3>
+                <p class="theme-korean">학벌 사회</p>
+                <p class="theme-desc">Siwoo believed law school would elevate him. Instead, it reveals how rigged the game truly is.</p>
+            </div>
+
+            <div class="theme-item">
+                <h3 class="theme-title">Vertical Architecture</h3>
+                <p class="theme-korean">계층의 공간화</p>
+                <p class="theme-desc">Like Parasite, physical space literalizes class. Basement gosiwon vs. penthouse apartments.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-now">
+        <h2 class="section-title">Why Now</h2>
+        <div class="why-now-content">
+            <p>Korea is in a moment of intense self-examination about class, family, and the broken promises of economic development.</p>
+            <br>
+            <p>Balzac wrote <em>Père Goriot</em> in 1835 about a society undergoing the same convulsions: the collapse of old values, the rise of ruthless capitalism, the corruption of family bonds by money.</p>
+            <br>
+            <p>His Paris <em>is</em> contemporary Seoul.</p>
+            <br>
+            <p>This is not an adaptation. <em>It's a recognition.</em></p>
+        </div>
+    </section>
+
+    <footer>
+        <p class="footer-contact">Prepared for Dominica Chang</p>
+        <p class="footer-note">January 2026 · Confidential</p>
+    </footer>
+</body>
+</html>
