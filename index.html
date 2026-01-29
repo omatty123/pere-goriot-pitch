@@ -394,8 +394,8 @@
 
         /* Why Now - Editorial Two-Column */
         .why-now {
-            background: #ffffff;
-            padding: 6rem 2rem;
+            background: var(--bg-section);
+            padding: 3rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -403,14 +403,15 @@
         .why-now .section-title {
             color: var(--accent-gold);
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
         }
 
         .why-now-columns {
             display: grid;
             grid-template-columns: 1fr 1px 1fr;
-            gap: 3rem;
-            max-width: 900px;
+            gap: 2rem;
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -419,23 +420,22 @@
         }
 
         .why-now-col h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            letter-spacing: 0.2em;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
             color: var(--accent-gold);
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
         }
 
         .why-now-col p {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.15rem;
-            line-height: 1.8;
+            font-size: 0.95rem;
+            line-height: 1.6;
             color: var(--text-secondary);
         }
 
         .why-now-col p + p {
-            margin-top: 1rem;
+            margin-top: 0.75rem;
         }
 
         .why-now-col em {
@@ -446,7 +446,7 @@
         @media (max-width: 768px) {
             .why-now-columns {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 1.5rem;
             }
             .why-now-divider {
                 display: none;
