@@ -9,12 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0a0a0a;
-            --bg-section: #111111;
-            --bg-card: #1a1a1a;
-            --text-primary: #f5f5f5;
-            --text-secondary: #a0a0a0;
-            --accent-gold: #c9a962;
+            --bg-dark: #f8f6f3;
+            --bg-section: #eae6e0;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --accent-gold: #9a7b4f;
             --accent-red: #8b2635;
         }
 
@@ -57,7 +57,7 @@
             align-items: center;
             text-align: center;
             padding: 2rem;
-            background: linear-gradient(180deg, var(--bg-dark) 0%, #1a1a1a 50%, var(--bg-dark) 100%);
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #fff 50%, var(--bg-dark) 100%);
             position: relative;
         }
 
@@ -68,7 +68,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(ellipse at center, rgba(201, 169, 98, 0.05) 0%, transparent 70%);
+            background: radial-gradient(ellipse at center, rgba(154, 123, 79, 0.08) 0%, transparent 70%);
             pointer-events: none;
         }
 
@@ -189,12 +189,13 @@
             text-decoration: none;
             color: inherit;
             transition: transform 0.2s, box-shadow 0.2s;
-            border: 1px solid #222;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         }
 
         .cast-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
             border-color: var(--accent-gold);
             text-decoration: none;
         }
@@ -300,9 +301,10 @@
 
         .comp-film {
             padding: 1rem 2rem;
-            border: 1px solid #333;
+            border: 1px solid #ccc;
             font-size: 0.9rem;
             color: var(--text-secondary);
+            background: var(--bg-card);
         }
 
         /* Themes */
@@ -334,6 +336,61 @@
             font-size: 0.95rem;
         }
 
+        /* Three Approaches */
+        .approaches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .approach-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 2px solid #ddd;
+            transition: border-color 0.2s;
+        }
+
+        .approach-card:hover {
+            border-color: var(--accent-gold);
+        }
+
+        .approach-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .approach-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .approach-tone {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .approach-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .approach-comps {
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+        }
+
         /* Why Now */
         .why-now {
             background: linear-gradient(135deg, var(--accent-red) 0%, #5a1a23 100%);
@@ -362,7 +419,7 @@
         footer {
             text-align: center;
             padding: 4rem 2rem;
-            border-top: 1px solid #222;
+            border-top: 1px solid #ddd;
         }
 
         .footer-contact {
@@ -536,6 +593,37 @@
                 <h3 class="theme-title">Vertical Architecture</h3>
                 <p class="theme-korean">계층의 공간화</p>
                 <p class="theme-desc">Like Parasite, physical space literalizes class. Basement gosiwon vs. penthouse apartments.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Three Approaches</h2>
+        <p class="section-subtitle">Different Tones, Same Story</p>
+
+        <div class="approaches-grid">
+            <div class="approach-card">
+                <div class="approach-label">Option A</div>
+                <h3 class="approach-title">Slow Burn Drama</h3>
+                <div class="approach-tone">Intimate, literary, character-driven</div>
+                <p class="approach-desc">16-episode prestige K-drama. Quiet devastation. Long takes of Goriot eating ramyeon alone. The violence is emotional—silences, turned backs, unanswered calls. Siwoo's corruption happens in increments you barely notice until it's too late.</p>
+                <div class="approach-comps">Comps: My Mister, My Liberation Notes, Mother</div>
+            </div>
+
+            <div class="approach-card">
+                <div class="approach-label">Option B</div>
+                <h3 class="approach-title">Thriller</h3>
+                <div class="approach-tone">Taut, propulsive, revenge-adjacent</div>
+                <p class="approach-desc">Feature film, 130 min. Vautrin drives the plot—his scheme to destroy a chaebol heir pulls Siwoo into a world of wire fraud, blackmail, and prosecutor corruption. Goriot's tragedy becomes the emotional core of a crime story. Ends with a trial.</p>
+                <div class="approach-comps">Comps: The Attorney, A Hard Day, The Man Standing Next</div>
+            </div>
+
+            <div class="approach-card">
+                <div class="approach-label">Option C</div>
+                <h3 class="approach-title">Dark Satire</h3>
+                <div class="approach-tone">Sharp, absurdist, class comedy</div>
+                <p class="approach-desc">The daughters are monsters but we laugh at them. The gosiwon residents are a Greek chorus. Siwoo narrates directly to camera. Heightened reality—scenes at gallery openings, golf courses, plastic surgery clinics. Goriot's death is played straight, and suddenly it's not funny anymore.</p>
+                <div class="approach-comps">Comps: Parasite, The Glory, SKY Castle</div>
             </div>
         </div>
     </section>
